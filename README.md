@@ -21,5 +21,6 @@ logic, and real-time visualization of algorithmic behavior.
 <p align="center">
   <img width="627" height="665" alt="maze-generator-pygame-process-showcase" src="https://github.com/user-attachments/assets/af85c441-a449-48ee-85db-81dba2570f4b" />
   <br />
+  <br />
   <img width="627" height="665" alt="maze-generator-pygame-final-showcase" src="https://github.com/user-attachments/assets/e8e3ad33-cd0d-49e8-998e-5bd41c4e3b97" />
 </p>

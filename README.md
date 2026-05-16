@@ -2,7 +2,7 @@
 Python and Pygame-based maze generation visualizer that creates dynamic procedural mazes using recursive backtracking algorithms.
 
 ### Description
-MazeMaker is an procedural maze generation project built with Python and Pygame that visually demonstrates how randomized depth-first
+MazeMaker is a procedural maze generation project built with Python and Pygame that visually demonstrates how randomized depth-first
 search (recursive backtracking) algorithms create perfect mazes in real time. The application dynamically traverses a customizable grid,
 carving paths between cells while rendering the maze generation process frame by frame.
 

@@ -94,7 +94,7 @@ class Canvas:
 
             yield
 
-    def get_search_generator(self, start_pos, end_pos):
+    def get_search_generator_dfs(self, start_pos, end_pos):
         start_cell = canvas[start_pos]
         self.visited_cells = [start_cell]
 
@@ -203,7 +203,7 @@ canvas = Canvas(canvas_size)
 start_pos = Vector()
 end_pos = canvas_size - Vector(1, 1)
 canvas_traversal_generator = canvas.get_traversal_generator(start_pos)
-canvas_search_generator = canvas.get_search_generator(start_pos, end_pos)
+canvas_search_generator_dfs = canvas.get_search_generator_dfs(start_pos, end_pos)
 
 # values
 grid_size = w / canvas.size.x
@@ -253,7 +253,7 @@ while True:
             mode = "waiting"
     elif mode == "searching":
         if canvas.can_search:
-            next(canvas_search_generator)
+            next(canvas_search_generator_dfs)
             draw_cursor(canvas, "purple")
         else:
             mode = "finished"

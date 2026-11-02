@@ -1,22 +1,44 @@
-### Maze Generator
-Python and Pygame-based maze generation visualizer that creates dynamic procedural mazes using recursive backtracking algorithms.
+# Maze Generator
 
-### Description
-MazeMaker is a procedural maze generation project built with Python and Pygame that visually demonstrates how randomized depth-first
-search (recursive backtracking) algorithms create perfect mazes in real time. The application dynamically traverses a customizable grid,
-carving paths between cells while rendering the maze generation process frame by frame.
+MazeMaker is a Python and Pygame visualizer that generates a maze with randomized depth-first search (recursive backtracking), then explores it with depth-first and breadth-first search.
 
-The project features a fully object-oriented architecture with custom vector mathematics, cell-based grid management, traversal
-generators, and sprite-based rendering. Users can customize maze sizes through command-line arguments, observe live traversal
-highlighting, and explore how algorithmic pathfinding and backtracking work visually.
+## Features
 
-Designed as both a programming and learning project, this project showcases concepts such as procedural generation, graph traversal,
-game loops, animation timing, and 2D rendering using Pygame. The project emphasizes clean class-based design, efficient grid traversal
-logic, and real-time visualization of algorithmic behavior.
+- Watch a maze being carved one cell at a time.
+- Explore the completed maze with DFS, followed by BFS.
+- Set the square grid size when launching the program.
 
----
+## Requirements
 
-# Gallery
+- Python
+- Pygame
+
+Install Pygame with:
+
+```bash
+python -m pip install pygame
+```
+
+## Run
+
+```bash
+python mazemaker.py [grid_size]
+```
+
+`grid_size` is optional and sets the number of cells along each side of the square grid. It defaults to `10`. For example:
+
+```bash
+python mazemaker.py 20
+```
+
+## Controls
+
+- Wait for maze generation to finish.
+- Press **Space** to start the DFS search.
+- After DFS finishes, press **Space** again to start the BFS search.
+- Close the window to exit.
+
+## Gallery
 
 <p align="center">
   <img width="628" height="666" alt="mazemaker-pygame-demo-showcase" src="https://github.com/user-attachments/assets/53f40737-9125-4fdb-8d9a-02c1c101b709" />

@@ -284,4 +284,11 @@ while True:
         else:
             mode = "finished_dfs"
 
+    elif mode == "searching_bfs":
+        if canvas.can_search:
+            next(canvas_search_generator_bfs)
+            draw_cursor(canvas, "forest  green", 0)
+        else:
+            mode = "finished_bfs"
+
     pygame.display.flip()

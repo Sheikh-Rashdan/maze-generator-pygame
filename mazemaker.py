@@ -179,6 +179,9 @@ speed = 100  # limited by fps
 # sprites
 sprites = load_sprites()
 
+# control
+mode = "generating"
+
 
 def draw_canvas(canvas):
     for cell in canvas:
@@ -202,10 +205,12 @@ while True:
 
     screen.fill("black")
     draw_canvas(canvas)
-    if canvas.can_traverse and (
-        max_cells <= 0 or canvas.traversed_count < max_cells - 1
-    ):
-        next(canvas_traversal_generator)
-        draw_cursor(canvas)
+
+    if mode == "generating":
+        if max_cells <= 0 or canvas.traversed_count < max_cells - 1:
+            next(canvas_traversal_generator)
+            draw_cursor(canvas)
+        if not canvas.can_traverse:
+            mode = "waiting"
 
     pygame.display.flip()

@@ -202,6 +202,9 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+        elif event.type == pygame.KEYDOWN:
+            if mode == "waiting" and event.key == pygame.K_SPACE:
+                mode = "searching"
 
     screen.fill("black")
     draw_canvas(canvas)

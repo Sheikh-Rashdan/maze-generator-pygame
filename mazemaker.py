@@ -254,6 +254,7 @@ while True:
     elif mode == "searching":
         if canvas.can_search:
             next(canvas_search_generator)
+            draw_cursor(canvas, "purple")
         else:
             mode = "finished"
 

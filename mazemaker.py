@@ -175,6 +175,7 @@ w, h = screen.get_size()
 canvas_size = Vector(canvas_grid_count, canvas_grid_count)
 canvas = Canvas(canvas_size)
 start_pos = Vector()
+end_pos = canvas_size - Vector(1, 1)
 canvas_traversal_generator = canvas.get_traversal_generator(start_pos)
 
 # values

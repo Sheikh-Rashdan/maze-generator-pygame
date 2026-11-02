@@ -262,6 +262,10 @@ while True:
                     mode = "searching_dfs"
                     canvas.reset_visited()
                     canvas.can_search = True
+                elif mode == "finished_dfs":
+                    mode = "searching_bfs"
+                    canvas.reset_visited()
+                    canvas.can_search = True
 
     screen.fill("black")
     draw_canvas(canvas)

@@ -231,7 +231,7 @@ def draw_cursor(canvas, color="orange"):
 
 
 while True:
-    dt = pygame.time.Clock().tick(speed)
+    dt = pygame.time.Clock().tick(speed if mode != "searching" else speed / 10)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()

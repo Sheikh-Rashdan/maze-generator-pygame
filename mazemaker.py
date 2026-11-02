@@ -108,6 +108,12 @@ class Canvas:
         cellA.entrances.append(cellB.pos - cellA.pos)
         cellB.entrances.append(cellA.pos - cellB.pos)
 
+    def reset_visited(self):
+        self.visited_cells = []
+        self.traversed_count = 0
+        for cell in self.values:
+            cell.visited = False
+
     def __getitem__(self, pos):
         self.check_pos_in_range(pos)
         i = self.get_index_from_pos(pos)

@@ -211,6 +211,7 @@ while True:
         elif event.type == pygame.KEYDOWN:
             if mode == "waiting" and event.key == pygame.K_SPACE:
                 mode = "searching"
+                canvas.reset_visited()
 
     screen.fill("black")
     draw_canvas(canvas)

@@ -116,6 +116,28 @@ class Canvas:
 
             yield
 
+    def get_search_generator_bfs(self, start_pos, end_pos):
+        start_cell = canvas[start_pos]
+        self.visited_cells = [start_cell]
+        start_cell.visited = True
+
+        while self.can_search:
+            cur_cell = self.visited_cells[0]
+
+            if cur_cell.pos == end_pos:
+                self.can_search = False
+                yield
+
+            self.visited_cells.pop(0)
+
+            for entrance in cur_cell.entrances:
+                next_cell = canvas[cur_cell.pos + entrance]
+                if not next_cell.visited:
+                    next_cell.visited = True
+                    self.visited_cells.append(next_cell)
+
+            yield
+
     def get_unvisited_neighbour_cells(self, cell):
         unvisited_neighbour_cells = []
         for Vdir in Vector.dirs:
@@ -201,6 +223,7 @@ start_pos = Vector()
 end_pos = canvas_size - Vector(1, 1)
 canvas_traversal_generator = canvas.get_traversal_generator(start_pos)
 canvas_search_generator_dfs = canvas.get_search_generator_dfs(start_pos, end_pos)
+canvas_search_generator_bfs = canvas.get_search_generator_bfs(start_pos, end_pos)
 
 # values
 grid_size = w / canvas.size.x

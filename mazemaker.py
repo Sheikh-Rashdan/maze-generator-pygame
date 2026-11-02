@@ -251,5 +251,10 @@ while True:
             draw_cursor(canvas)
         if not canvas.can_traverse:
             mode = "waiting"
+    elif mode == "searching":
+        if canvas.can_search:
+            next(canvas_search_generator)
+        else:
+            mode = "finished"
 
     pygame.display.flip()

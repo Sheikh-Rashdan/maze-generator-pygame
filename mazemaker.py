@@ -53,6 +53,7 @@ class Canvas:
         ]
 
         self.traversed_count = 0
+        self.can_search = False
 
     @property
     def can_traverse(self):
@@ -213,6 +214,7 @@ while True:
             if mode == "waiting" and event.key == pygame.K_SPACE:
                 mode = "searching"
                 canvas.reset_visited()
+                canvas.can_search = True
 
     screen.fill("black")
     draw_canvas(canvas)

@@ -224,10 +224,10 @@ def draw_canvas(canvas):
         screen.blit(sprites[name], (pos, (grid_size,) * 2))
 
 
-def draw_cursor(canvas):
+def draw_cursor(canvas, color="orange"):
     cursor_cell = canvas.visited_cells[-1]
     pos = (cursor_cell.pos * grid_size).to_tuple()
-    pygame.draw.rect(screen, "orange", (pos, (grid_size,) * 2))
+    pygame.draw.rect(screen, color, (pos, (grid_size,) * 2))
 
 
 while True:

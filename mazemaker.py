@@ -251,16 +251,17 @@ def draw_cursor(canvas, color="orange", cursor_index=-1):
 
 
 while True:
-    dt = pygame.time.Clock().tick(speed if mode != "searching" else speed / 10)
+    dt = pygame.time.Clock().tick(speed if "searching" not in mode else speed / 10)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
         elif event.type == pygame.KEYDOWN:
-            if mode == "waiting" and event.key == pygame.K_SPACE:
-                mode = "searching"
-                canvas.reset_visited()
-                canvas.can_search = True
+            if event.key == pygame.K_SPACE:
+                if mode == "finished_generating":
+                    mode = "searching_dfs"
+                    canvas.reset_visited()
+                    canvas.can_search = True
 
     screen.fill("black")
     draw_canvas(canvas)
@@ -270,12 +271,13 @@ while True:
             next(canvas_traversal_generator)
             draw_cursor(canvas)
         if not canvas.can_traverse:
-            mode = "waiting"
-    elif mode == "searching":
+            mode = "finished_generating"
+
+    elif mode == "searching_dfs":
         if canvas.can_search:
             next(canvas_search_generator_dfs)
             draw_cursor(canvas, "purple")
         else:
-            mode = "finished"
+            mode = "finished_dfs"
 
     pygame.display.flip()

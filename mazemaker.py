@@ -97,25 +97,22 @@ class Canvas:
     def get_search_generator_dfs(self, start_pos, end_pos):
         start_cell = canvas[start_pos]
         self.visited_cells = [start_cell]
+        start_cell.visited = True
 
         while self.can_search:
             cur_cell = self.visited_cells[-1]
-            if not cur_cell.visited:
-                cur_cell.visited = True
 
             if cur_cell.pos == end_pos:
                 self.can_search = False
                 yield
 
-            dead_end = True
+            self.visited_cells.pop()
+
             for entrance in cur_cell.entrances:
                 next_cell = canvas[cur_cell.pos + entrance]
                 if not next_cell.visited:
-                    dead_end = False
+                    next_cell.visited = True
                     self.visited_cells.append(next_cell)
-
-            if dead_end:
-                self.visited_cells.pop()
 
             yield
 
